@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project 1</title>
+    <title>Project 1 - Home</title>
+    <link href="images/favicon2.ico" rel="icon" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -12,48 +13,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-    <!-- Dropdown Contents-->
-    <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">one</a></li>
-        <li><a href="#!">two</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">three</a></li>
-    </ul>
-    <!--Desktop Navbar-->
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo"><img src="https://png.icons8.com/nolan/64/000000/ok.png"></a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href=""><img src="https://png.icons8.com/color/50/000000/league-of-legends.png"></a></li>
-                <li><a href=""><img src="https://png.icons8.com/color/50/000000/overwatch.png"></a></li>
-                <li><a href=""><img src="https://png.icons8.com/color/48/000000/dota.png"></a></li>
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">arrow_drop_down</i></a></li>
-            </ul>
-        </div>
-    </nav>
-        <!--Mobile Navbar-->
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href=""><img src="https://png.icons8.com/color/50/000000/league-of-legends.png"></a></li>
-            <li><a href=""><img src="https://png.icons8.com/color/50/000000/overwatch.png"></a></li>
-            <li><a href=""><img src="https://png.icons8.com/color/48/000000/dota.png"></a></li>
-        </ul>
 
-    <!--Buttons to Game Specific Streams-->
-    <div class="row">
-        <div class="col-4">
-            <div class="mainDiv">Test</div>
+    <div class="container">
+
+        <div class="row">
+            <img id="paraLogo" src="https://png.icons8.com/nolan/256/000000/ok.png">
+            <h1 id="paraBody">Welcome to Project 1! Please select a game below to view past games.</h1>
         </div>
-        <div class="col-4">
-            <div class="mainDiv">Test</div>
-        </div>
-        <div class="col-4">
-            <div class="mainDiv">Test</div>
+        <!--Buttons to Game Specific Streams-->
+        <div class="row">
+            <div class="col-lg-4">
+
+
+                  <div class="row">
+                        <div class="col s12 m7">
+                          <div class="card">
+                            <div class="card-image">
+                              <img src="images/lol.jpg">
+                              <span class="card-title">Card Title</span>
+                            </div>
+                            <div class="card-content">
+                              <p>I am a very simple card. I am good at containing small bits of information.
+                              I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                            <div class="card-action">
+                              <a href="#">This is a link</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                
+            </div>
+            <div class="col-lg-4">
+
+                    <div class="row">
+                            <div class="col s12 m7">
+                              <div class="card">
+                                <div class="card-image">
+                                  <img src="images/lol.jpg">
+                                  <span class="card-title">Card Title</span>
+                                </div>
+                                <div class="card-content">
+                                  <p>I am a very simple card. I am good at containing small bits of information.
+                                  I am convenient because I require little markup to use effectively.</p>
+                                </div>
+                                <div class="card-action">
+                                  <a href="#">This is a link</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+            </div>
+            <div class="col-lg-4">
+
+
+                    <div class="row">
+                            <div class="col s12 m7">
+                              <div class="card">
+                                <div class="card-image">
+                                  <img src="images/lol.jpg">
+                                  <span class="card-title">Card Title</span>
+                                </div>
+                                <div class="card-content">
+                                  <p>I am a very simple card. I am good at containing small bits of information.
+                                  I am convenient because I require little markup to use effectively.</p>
+                                </div>
+                                <div class="card-action">
+                                  <a href="#">This is a link</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+            </div>
         </div>
     </div>
 
-
-
+    <div class="card" id="disclaimer">
+        <div class="card-body">
+            <div class="cl-6"><h2 id="dislaimerText">All data courtesy of Liquipedia.com</h1></div>
+        </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascript/javascript.js"></script>
