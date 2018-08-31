@@ -2,7 +2,7 @@ var queryURL = "https://liquipedia.net/leagueoflegends/api.php?action=query&prop
 
 
 $.ajax({
-    url: 'https://liquipedia.net/dota2/api.php?format=jsonty&action=query&meta=siteinfo',
+    url: 'https://liquipedia.net/overwatch/api.php?format=jsonty&action=query&meta=siteinfo',
     data: {
         format: 'json'
     },
