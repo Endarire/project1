@@ -1,10 +1,15 @@
 var vidIdNum;
+var searchString = [
+    'overwatch world cup 2017 final',
+    'league of legends na lcs 2017 finals',
+    'dota 2 2018 international grand final'
+]
 
 $.ajax({
     cache: false,
     data: $.extend({
         key: 'AIzaSyB-v9METQVhHGLIMj_NF_lNJBizORFDG1s',
-        q: 'overwatch world cup 2017 final',
+        q: searchString[2],
         part: 'snippet'
     }, { maxResults: 20, pageToken: $("#pageToken").val() }),
     dataType: 'json',
