@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project 1 - Home</title>
+    <title>Project 1 - Overwatch</title>
     <link href="images/favicon2.ico" rel="icon" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,30 +14,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+    <!-- Dropdown Contents-->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">test1</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">test2</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">test3</a></li>
+    </ul>
+    <!--Desktop Navbar-->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo"><img src="https://png.icons8.com/nolan/64/000000/ok.png"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="lol.html"><img src="https://png.icons8.com/color/50/000000/league-of-legends.png"></a></li>
+                <li><a href="ow.html"><img src="https://png.icons8.com/color/50/000000/overwatch.png"></a></li>
+                <li><a href="d2.html"><img src="https://png.icons8.com/color/48/000000/dota.png"></a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+        </div>
+    </nav>
+        <!--Mobile Navbar-->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="lol.html"><img src="https://png.icons8.com/color/50/000000/league-of-legends.png"></a></li>
+            <li><a href="ow.html"><img src="https://png.icons8.com/color/50/000000/overwatch.png"></a></li>
+            <li><a href="d2.html"><img src="https://png.icons8.com/color/48/000000/dota.png"></a></li>
+        </ul>
 
 
-        <div class="row">
-            <img id="paraLogo" src="https://png.icons8.com/nolan/256/000000/ok.png">
-            <h1 id="paraBody">Welcome to Project 1! Please select a game below to view past games.</h1>
-        </div>
-        <!--Buttons to Game Specific Streams-->
-        <div class="row">
-            <div class="col s4 m4 l4 center">
-                <a href="lol.html">
-                    <img src="images/lol2.jpg" alt="lol" style="width:250px;height:250px;border:0;">
-                </a>
-            </div>
-            <div class="col s4 m4 l4 center">
-                <a href="d2.html">
-                    <img src="images/dota23.png" alt="d2" style="width:250px;height:250px;border:0;">
-                </a>
-            </div>
-            <div class="col s4 m4 l4 center">
-                <a href="ow.html">
-                    <img src="images/ow.jpg" alt="ow" style="width:250px;height:250px;border:0;">
-                </a>
-            </div>
-        </div>
+
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascript/javascript.js"></script>
