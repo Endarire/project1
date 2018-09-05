@@ -9,7 +9,7 @@ $.ajax({
     cache: false,
     data: $.extend({
         key: 'AIzaSyB-v9METQVhHGLIMj_NF_lNJBizORFDG1s',
-        q: searchString[1],
+        q: searchString[x],
         part: 'snippet'
     }, { maxResults: 20, pageToken: $("#pageToken").val() }),
     dataType: 'json',
@@ -18,8 +18,6 @@ $.ajax({
     url: 'https://www.googleapis.com/youtube/v3/search'
 })
     .done(function (data) {
-        console.log(data);
-        console.log(data.items[0].id.videoId);
         vidIdNum = data.items[0].id.videoId;
 
         // Load the IFrame Player API code asynchronously.
@@ -62,22 +60,62 @@ var connectionsRef = database.ref("/connections");
 var connectedRef = database.ref(".info/connected");
 
 // When the client's connection state changes...
-connectedRef.on("value", function(snap) {
+connectedRef.on("value", function (snap) {
 
-  // If they are connected..
-  if (snap.val()) {
+    // If they are connected..
+    if (snap.val()) {
 
-    // Add user to the connections list.
-    var con = connectionsRef.push(true);
-    // Remove user from the connection list when they disconnect.
-    con.onDisconnect().remove();
-  }
+        // Add user to the connections list.
+        var con = connectionsRef.push(true);
+        // Remove user from the connection list when they disconnect.
+        con.onDisconnect().remove();
+    }
 });
 
 // When first loaded or when the connections list changes...
-connectionsRef.on("value", function(snap) {
+connectionsRef.on("value", function (snap) {
 
-  // Display the viewer count in the html.
-  // The number of online users is the number of children in the connections list.
-  $("#connected-viewers").text(snap.numChildren());
+    // Display the viewer count in the html.
+    // The number of online users is the number of children in the connections list.
+    $("#connected-viewers").text("Viewers: " + snap.numChildren());
+});
+
+//--------------------------------------------------------------------------------------------------
+
+database.ref("/comments").on("value", function (snapshot) {
+
+    for (var i = 0; i < 5; i++) {
+        var x = $("<div>");
+        $(x).text(snapshot.val().users[i] + ": " + snapshot.val().com[i]);
+        $("#comments-display").append(x);
+    }
+
+    // // If Firebase has a highPrice and highBidder stored (first case)
+    // if (snapshot.child("omments").exists() && snapshot.child("highPrice").exists()) {
+
+    //     // Set the local variables for highBidder equal to the stored values in firebase.
+    //     highBidder = snapshot.val().highBidder;
+    //     highPrice = parseInt(snapshot.val().highPrice);
+
+    //     // change the HTML to reflect the newly updated local values (most recent information from firebase)
+    //     $("#highest-bidder").text(snapshot.val().highBidder);
+    //     $("#highest-price").text("$" + snapshot.val().highPrice);
+    // }
+
+    // // Else Firebase doesn't have a highPrice/highBidder, so use the initial local values.
+    // else {
+
+    //     // Change the HTML to reflect the local value in firebase
+    //     $("#highest-bidder").text(highBidder);
+    //     $("#highest-price").text("$" + highPrice);
+
+    //     // Print the local data to the console.
+    //     console.log("local High Price");
+    //     console.log(highBidder);
+    //     console.log(highPrice);
+    // }
+
+    // If any errors are experienced, log them to console.
+}, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
 });
