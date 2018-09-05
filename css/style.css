@@ -63,8 +63,8 @@ body {
 	}
 }
 
+/* Forces Disclaimer Box Be Fixed in Bottom Right */
 #disclaimer {
-    /* Forces Disclaimer Box Be Fixed in Bottom Right */
     height: 8rem;
     width: 18rem;
     position: fixed;
@@ -73,13 +73,14 @@ body {
     background-color: #223344;
 }
 
+/* Makes Disclaimer Text Look Nice */
 h2 {
-    /* Makes Disclaimer Text Look Nice */
     font-size: 20px;
     text-align: center;
     color: #2268FE;
 }
 
+/* Creates custom font from online */
 @font-face {
     font-family: 'UbuntuLI';
     src: url('../images/other/Ubuntu-LI.ttf'); 
@@ -100,12 +101,28 @@ a {
     text-align: center;
 }
 
+/* Centers logo and paragraph in the homepage */
+#para
+{
+    /* Centers text next to logo */
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    /* Centers the logo/paragraph left-to-right */
+    justify-content: center;
+}
+
+/* Formats the logo in the hompage */
 #paraLogo {
     float: left;
     margin-right: 10px;
     clear:both;
 }
 
+/* Formats the paragraph in the homepage */
 #paraBody {
     margin-left: 0px;
     overflow:auto;
@@ -114,17 +131,96 @@ a {
     color: white;
 }
 
+/* Makes game buttons grow on hover */
+.grow { 
+    transition: all .2s ease-in-out; 
+}
+.grow:hover {
+    transform: scale(1.5);
+    border: 100%;
+}
+
+/* Hides Scrollbar for Main Body Paragraph */
 #paraBody::-webkit-scrollbar { 
-    /* Hides Scrollbar for Main Body Paragraph */
     display: none; 
 }
 
-  /* Width at 320px and below */
-  @media screen and (max-width: 320px) {
+/* Width at 320px and below */
+@media screen and (max-width: 320px) {
     .col
     {
     display: block;
     float: left;
     }
-  }
+}
 
+/* Creates the gradient effect around each game button */
+.bot-left { 
+    /* width: 400px; */
+    padding: 0px 20px; /* Makes button image smaller based on padding amount */
+    /* border-top: 5px solid #bb27fe; */
+    margin: 40px auto;
+    background-image: -webkit-linear-gradient(#bb27fe, #1F6BFE);
+    background-image:
+        -moz-linear-gradient(#bb27fe, #1F6BFE),
+        -moz-linear-gradient(#bb27fe, #1F6BFE)
+    ;
+    background-image: 
+        linear-gradient(#bb27fe, #1F6BFE),
+        linear-gradient(#bb27fe, #1F6BFE)
+    ;
+    -moz-background-size:5px 100%;
+    background-size:8px 100%;
+    background-position:0 0, 100% 0;
+    background-repeat:no-repeat;
+}
+
+
+  /* .bot-left:before, .bot-left:after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: -3px;
+    
+  }
+  .bot-left:before {
+    top: -3px;
+    width: 3px;
+    background-image: -webkit-gradient(linear, 0 100%, 0 0, from(#bb27fe), to(transparent));
+    background-image: -webkit-linear-gradient(transparent, #bb27fe);
+    background-image: -moz-linear-gradient(transparent, #bb27fe);
+    background-image: -o-linear-gradient(transparent, #bb27fe);
+  }
+  .bot-left:after {
+    right: -3px;
+    height: 3px;
+    background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#bb27fe), to(transparent));
+    background-image: -webkit-linear-gradient(left, #bb27fe, transparent);
+    background-image: -moz-linear-gradient(left, #bb27fe, transparent);
+    background-image: -o-linear-gradient(left, #bb27fe, transparent);
+  } */
+
+
+/* Mobile Responsiveness for the Youtube Video*/
+iframe.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+.video-container {
+    position: sticky;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+    /* Creates space on the left and right sides of video */
+    margin-left: 8%;
+    margin-right: 8%;
+}
+.video-container iframe,
+.video-container object, 
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
