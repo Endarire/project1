@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Get PandaScore LOL Data!</title>
+  <style type="text/css">
+    button,
+    div,
+    form,
+    input
+    {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Get PandaScore LOL Data!</h1>
+
+    <!-- gifs will Get Dumped Here -->
+    <div id="LOL-data-view"></div>
+
+    <!-- Rendered Buttons will get Dumped Here  -->
+    <div id="buttons-view"></div>
+
+    <form id="gif-form">
+      <label for="LOL-input">Get PandaScore LOL Data!</label>
+      <input type="text" id="LOL-input">
+      <br>
+
+      <!-- Button triggers new gif to be added -->
+      <input id="add-LOL-data" type="submit" value="Add a topic to search!">
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // Initial array of League of Legends topics to search
+      var LOLTopics = ["lol/leagues", "lol/series", "lol/tournaments", "lol/matches", "lol/masteries", "lol/teams"/*, "lol/champions",*/ /*"lol/items"*/]; //commented topics are likely unimportant for this project
+
+      // displayLOLInfo function re-renders the HTML to display the appropriate content
+      function displayLOLInfo()
+      {
+        var searchTerm = $(this).attr("LOL-search-term");
+        let queryURL = "https://cors.io/?https://api.pandascore.co/" + searchTerm + ".json?token=45Y1oJ2gHMQDAL-KuPfNsuypkLd360qcCP7uDf0djuwGmcVByRw";
+        
+        $.ajax
+        ({
+        url: queryURL,
+        method: "GET"
+        })
+        // After data comes back from the request
+        .then(function(response)
+        {
+          console.log("QUERY URL: " + queryURL);
+          console.log("RESPONSE: " + response);
+          // storing the data from the AJAX request in the results variable
+          var results = response.data; //Useful?
+          
+          //Console logging results URLs for animated and still image versions.
+          //console.log("Results[0] URL: " + results[0].url);
+          //console.log("Results[0] URL plus images.fixed_height_still.url: " + results[0].images.fixed_height_still.url);
+
+          // Looping through each result item
+          for (var a = 0; a < results.length; a++)
+          {
+            // Creating and storing a div tag
+            var LOLDiv = $("<div>");
+
+            // Creating a paragraph tag with the result item's rating
+            var p = $("<p>").text("Adultness Rating: " + results[a].rating);
+
+            // Creating and storing an image tag
+            var gifImage = $("<img>");
+            let stillImage = $("<img>");
+
+            // Setting the src attribute of the image to a property pulled off the result item
+            //This gets the animated and still GIF versions.
+
+            //Make attributes
+            /*
+            gifImage.createAttribute("animated-url");
+            gifImage.createAttribute("data-state");
+            gifImage.createAttribute("class");
+
+            stillImage.createAttribute("still-url");
+            stillImage.createAttribute("data-state");
+            stillImage.createAttribute("class");
+            */
+
+            document.createAttribute("animated-url");
+            document.createAttribute("data-state");
+            document.createAttribute("class");
+            document.createAttribute("still-url");
+            
+            gifImage.attr("src", results[a].images.fixed_height.url);
+            stillImage.attr("src", results[a].images.fixed_height_still.url);
+
+            //Set these attributes
+            /*
+            gifImage.setAttribute("animated-url", results[a].images.fixed_height.url); 
+            gifImage.setAttribute("data-state", "animated");
+            gifImage.setAttribute("class", "gif");
+
+            stillImage.setAttribute("still-url", results[a].images.fixed_height_still.url);
+            stillImage.setAttribute("data-state", "still");
+            stillImage.setAttribute("class", "gif");
+            */
+            gifImage.attr("animated-url", results[a].images.fixed_height.url);
+            gifImage.attr("still-url", results[a].images.fixed_height_still.url);
+            gifImage.attr("data-state", "animated");
+            gifImage.attr("class", "gif");
+
+            stillImage.attr("animated-url", results[a].images.fixed_height.url);
+            stillImage.attr("still-url", results[a].images.fixed_height_still.url);
+            stillImage.attr("data-state", "still");
+            stillImage.attr("class", "gif");
+
+            //console.log("stillImage.attr(data-state) " + stillImage.attr("data-state"));
+            //console.log("gifImage.attr(data-state) " + gifImage.attr("data-state"));
+
+            // Appending the paragraph and image tag to the LOLDiv
+            LOLDiv.append(p);
+            LOLDiv.append(stillImage); //Show still images by default!
+            //LOLDiv.append(gifImage);
+            
+            // Prependng the LOLDiv to the HTML page in the "#gifs-appear-here" div
+            $("#LOL-data-view").prepend(LOLDiv);
+          }
+        });
+      }
+
+      
+      //If the document is clicked, and the area on the document clicked is a member of class gif,
+      //run the function!
+      $(document).on("click", ".gif", function(event) 
+      {
+        //event.preventDefault();
+        console.log("On image click function triggered!");
+        // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+        let state = $(this).attr("data-state");
+        
+        console.log("State: " + state);
+        // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+        // Then, set the image's data-state to animate
+        // Else set src to the data-still value
+        if (state === "still")
+        {
+          $(this).attr("src", $(this).attr("animated-url"));
+          $(this).attr("data-state", "animated");
+        }
+        else
+        {
+          $(this).attr("src", $(this).attr("still-url"));
+          $(this).attr("data-state", "still");
+        }
+    });
+
+      // Function for displaying gif data
+      function renderButtons()
+      { // Deleting the gifs prior to adding new gifs
+        // (this is necessary otherwise you will have repeat buttons)
+        $("#buttons-view").empty();
+
+        // Looping through the array of gifs
+        for (var d = 0; d < LOLTopics.length; d++)
+        { // Then dynamicaly generating buttons for each gif in the array
+          // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
+          var a = $("<button>");
+          // Adding a class of LOL-data-btn to our button
+          a.addClass("LOL-data-btn");
+          // Adding a data-attribute
+          a.attr("LOL-search-term", LOLTopics[d]);
+          // Providing the initial button text
+          a.text(LOLTopics[d]);
+          // Adding the button to the buttons-view div
+          $("#buttons-view").append(a);
+        }
+      }
+
+      // This function handles events where a gif button is clicked
+      $("#add-LOL-data").on("click", function(event)
+      {
+        event.preventDefault();
+        // This line grabs the input from the textbox
+        var LOLSearchResult = $("#LOL-input").val().trim();
+
+        // Adding gif from the textbox to our array
+        LOLTopics.push(LOLSearchResult);
+
+        // Calling renderButtons which handles the processing of our gif array
+        renderButtons();
+      });
+
+      // Adding a click event listener to all elements with a class of "LOL-data-btn"
+      $(document).on("click", ".LOL-data-btn", displayLOLInfo);
+
+      // Calling the renderButtons function to display the intial buttons
+      renderButtons();
+    </script>
+  </div>
+</body>
+
+</html>
