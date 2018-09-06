@@ -1,15 +1,11 @@
 var vidIdNum;
-var searchString = [
-    'overwatch world cup 2017 final',
-    'league of legends na lcs 2017 finals',
-    'dota 2 2018 international grand final'
-]
+var searchString = 'dota 2 2018 international grand final #5'
 
 $.ajax({
     cache: false,
     data: $.extend({
         key: 'AIzaSyB-v9METQVhHGLIMj_NF_lNJBizORFDG1s',
-        q: searchString[x],
+        q: searchString,
         part: 'snippet'
     }, {
             maxResults: 5
