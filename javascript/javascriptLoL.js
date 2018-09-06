@@ -1,3 +1,8 @@
+$(document).ready(function () {
+    $('.sidenav').sidenav(); /* Mobile Navbar function */
+    $(".dropdown-trigger").dropdown(); /* Navbar Dropdown Function */
+});
+
 var vidIdNum;
 var searchString = [
     'overwatch world cup 2017 final',
