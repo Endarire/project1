@@ -85,6 +85,7 @@ connectionsRef.on("value", function (snap) {
 //--------------------------------------------------------------------------------------------------
 
 database.ref("/comments").on("value", function (snapshot) {
+    $("#comments-display").empty();
 
     for (var i = 0; i < 5; i++) {
         var x = $("<div>");
