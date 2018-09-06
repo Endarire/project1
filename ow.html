@@ -8,6 +8,7 @@
     <title>Project 1 - Overwatch</title>
     <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -47,9 +48,43 @@
         <li><a href="d2.html"><img src="images/gameIcons/dota.png">Dota 2</a></li>
     </ul>
 
-    <div class="video-container">
-        <div id="ytplayer"></div>
+    <div class="row">
+        <div class="col s8 m8 l8">
+            <div class="video-container">
+                <div id="ytplayer"></div>
+            </div>
+        </div>
+
+        <div class="col s4 m4 l8">
+            <div class="card opacity" style="margin-left: 20px; margin-right: 20px;">
+                    <div class="card-content white-text">
+                        <div>
+                            <div><p><i class="far fa-comments"></i> Chat</p></div>
+                            <br>
+                            <div id="comments-display"></div>
+                            <form>
+                                <div class="form-group row">
+                                    <hr>
+                                    <label for="user-name">User Name</label>
+                                    <input class="form-control" id="user-name" type="text" maxlength="10">
+                                </div>
+                                <div class="form-group row">
+                                    <label for="user-comment">Comment</label>
+                                    <input class="form-control" id="user-comment" type="text" maxlength="200">
+                                </div>
+                                <button class="btn btn-primary" id="submit-comment" type="submit">Submit</button>
+                            </form>
+                            <br>
+                            <hr>
+                            <div id="connected-viewers"></div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
     </div>
+
+
     <div class="fullpage">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
         tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
@@ -127,34 +162,12 @@
         tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum.
     </div>
 
-
-<br>
-    <div>
-        <div>Comments</div>
-        <div id="comments-display"></div>
-    </div>
-<br>
-    <form>
-        <div class="form-group row">
-            <label for="user-name">User Name</label>
-            <input class="form-control" id="user-name" type="text">
-        </div>
-        <div class="form-group row">
-            <label for="user-comment">Comment</label>
-            <input class="form-control" id="user-comment" type="text">
-        </div>
-        <button class="btn btn-primary" id="submit-comment" type="submit">Submit</button>
-    </form>
-<br><br>
-    <div id="connected-viewers"></div>
-<br>
     <script>
         var x = 0;
     </script>
     <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
     <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script type="text/javascript" src="javascript/javascript.js"></script>
     <script type="text/javascript" src="javascript/javascriptD2.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
