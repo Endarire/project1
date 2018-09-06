@@ -131,14 +131,20 @@ a {
     color: white;
 }
 
-/* Makes game buttons grow on hover */
-.grow { 
-    transition: all .2s ease-in-out; 
+/* Makes game buttons grow/transparent/rounded on hover */
+/* .grow { 
+    transition: all 0.8s ease-in-out; 
+    opacity: 0.7;
+    border-radius: 8%;
 }
 .grow:hover {
     transform: scale(1.5);
     border: 100%;
-}
+    opacity: 1;
+    -moz-transition: opacity .5s ease-out;
+    -webkit-transition: opacity .5s ease-out;
+    -o-transition: opacity .5s ease-out;
+} */
 
 /* Hides Scrollbar for Main Body Paragraph */
 #paraBody::-webkit-scrollbar { 
@@ -156,24 +162,20 @@ a {
 
 /* Creates the gradient effect around each game button */
 .bot-left { 
-    /* width: 400px; */
-    padding: 0px 20px; /* Makes button image smaller based on padding amount */
-    /* border-top: 5px solid #bb27fe; */
-    margin: 40px auto;
-    background-image: -webkit-linear-gradient(#bb27fe, #1F6BFE);
-    background-image:
-        -moz-linear-gradient(#bb27fe, #1F6BFE),
-        -moz-linear-gradient(#bb27fe, #1F6BFE)
-    ;
-    background-image: 
-        linear-gradient(#bb27fe, #1F6BFE),
-        linear-gradient(#bb27fe, #1F6BFE)
-    ;
-    -moz-background-size:5px 100%;
-    background-size:8px 100%;
-    background-position:0 0, 100% 0;
-    background-repeat:no-repeat;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #1F6BFE, #bb27fe 100%);
+    padding: 9Px;
+    width:300px;
+    height:300px;
+    border:0;
 }
+#gameBtn:hover .bot-left{ 
+    transform: scale(1.5);
+}
+  .bot-left {
+    transition: all 0.5s;
+  }
+
 
 
   /* .bot-left:before, .bot-left:after {
@@ -201,7 +203,7 @@ a {
   } */
 
 
-/* Mobile Responsiveness for the Youtube Video*/
+/* Mobile Responsiveness for Youtube Video*/
 iframe.sticky {
     position: -webkit-sticky; /* Safari */
     position: sticky;
