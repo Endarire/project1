@@ -38,7 +38,7 @@
     <script type="text/javascript">
       // Initial array of topics to search
       //LOL TEAM INFOS INCLUDING LOGOS: /lol/tournaments
-      var topicsRay = ["lol/tournaments", "/dota2/leagues", "/dota2/tournaments", "/dota2/teams", "/dota2/players", "lol/series", "lol/leagues", "lol/matches", "lol/masteries", "lol/teams"/*, "lol/champions",*/ /*"lol/items"*/]; //commented topics are likely unimportant for this project
+      var topicsRay = ["ow/tournaments", "lol/tournaments", "/dota2/leagues", "/dota2/tournaments", "/dota2/teams", "/dota2/players", "lol/series", "lol/leagues", "lol/matches", "lol/masteries", "lol/teams"/*, "lol/champions",*/ /*"lol/items"*/]; //commented topics are likely unimportant for this project
 
       // displayLOLInfo function re-renders the HTML to display the appropriate content
       function displayLOLInfo()
@@ -63,54 +63,16 @@
           var results = response.data; //Useful?
 
           //LOL Teams
-          let SamsungGalaxy =
-          { /*
-            name: "",
-            acronym: "",
-            image_url: ""
-            */
-          };
-          let SKTelecom =
-          {/*
-            name: "",
-            acronym: "",
-            image_url: ""
-            */
-          };
+          let SamsungGalaxy = {};
+          let SKTelecom = {};
 
           //DOTA 2 Teams
-          let OG =
-          {
-            /*
-            name: "",
-            acronym: "",
-            image_url: ""
-            */
-          };
-          let PSGLGD =
-          {
-            /*
-            name: "",
-            acronym: "",
-            image_url: ""
-            */
-          };
+          let OG ={};
+          let PSGLGD = {};
 
           //Overwatch Teams
-          let TeamCanada =
-          {/*
-            name: "",
-            acronym: "",
-            image_url: ""
-            */
-          };
-          let TeamSouthKorea =
-          {/*
-            name: "",
-            acronym: "",
-            image_url: ""
-            */
-          };
+          let TeamCanada = {};
+          let TeamSouthKorea = {};
 
           //console.log("SamsungGalaxyLogoURL: " + SamsungGalaxyLogoURL);
           
@@ -122,16 +84,32 @@
             console.log("response[a]: ", response[a]);
 
             //LOL Data
-            //if(response[a].teams !== null) //Check if the field exists!
+            if(response[a].teams !== null) //Check if the field exists!
             {
               for(let b = 0; b < response[a].teams.length; b++)
               {
                 console.log("response[a].teams[b]", response[a].teams[b]);
                 
+                //DOTA 2 Teams
+                if(response[a].teams[b].name.toUpperCase() === "OG".toUpperCase())
+                {
+                  OG.name = response[a].teams[b].name;
+                  OG.acronym = response[a].teams[b].acronym;
+                  OG.image_url = response[a].teams[b].image_url;
+                  console.log("OG: ", OG);
+                }
+
+                if(response[a].teams[b].name.toUpperCase() === "PSG.LGD".toUpperCase() || response[a].teams[b].name.toUpperCase() === "PSG LGD".toUpperCase())
+                {
+                  PSGLGD.name = response[a].teams[b].name;
+                  PSGLGD.acronym = response[a].teams[b].acronym;
+                  PSGLGD.image_url = response[a].teams[b].image_url;
+                  console.log("PSGLGD: ", PSGLGD);
+                }
+
                 //LOL Teams
                 if(response[a].teams[b].name.toUpperCase() === "Samsung Galaxy".toUpperCase())
                 {
-                  //SamsungGalaxyLogoURL = response[a].teams[b].image_url;  //alert("teams[b] Image URL: " + response[a].teams[b].image_url);
                   SamsungGalaxy.name = response[a].teams[b].name;
                   SamsungGalaxy.acronym = response[a].teams[b].acronym;
                   SamsungGalaxy.image_url = response[a].teams[b].image_url;
@@ -145,40 +123,26 @@
                   SKTelecom.image_url = response[a].teams[b].image_url;
                   console.log("SK TELECOM T1: ", SKTelecom);
                 }
+
+                //Overwatch Teams
+                if(response[a].teams[b].name.toUpperCase() === "South_Korea".toUpperCase() || response[a].teams[b].name.toUpperCase() === "South Korea".toUpperCase())
+                {
+                  TeamSouthKorea.name = response[a].teams[b].name;
+                  TeamSouthKorea.acronym = response[a].teams[b].acronym;
+                  TeamSouthKorea.image_url = response[a].teams[b].image_url;
+                  console.log("Team South Korea: ", TeamSouthKorea);
+                }
+
+                if(response[a].teams[b].name.toUpperCase() === "Canada".toUpperCase())
+                {
+                  TeamCanada.name = response[a].teams[b].name;
+                  TeamCanada.acronym = response[a].teams[b].acronym;
+                  TeamCanada.image_url = response[a].teams[b].image_url;
+                  console.log("Team Canada: ", TeamCanada);
+                }
               }
             }
-
-
-            //DOTA 2 Data
-            //if(response[a].teams) //Check if the field exists!
-            //{
-              for(let c = 0; c < response[a].teams.length; c++)
-              {
-                //DOTA 2 Teams
-                if(response[a].teams[c].name.toUpperCase() === "OG".toUpperCase())
-                {
-                  //SamsungGalaxyLogoURL = response[a].teams[b].image_url;  //alert("teams[b] Image URL: " + response[a].teams[b].image_url);
-                  OG.name = response[a].teams[c].name;
-                  OG.acronym = response[a].teams[c].acronym;
-                  OG.image_url = response[a].teams[c].image_url;
-                  console.log("OG: ", OG);
-                  alert("OG: ", OG);
-                }
-
-                if(response[a].teams[c].name.toUpperCase() === "PSG.LGD".toUpperCase() || response[a].teams[c].name.toUpperCase() === "PSG LGD".toUpperCase())
-                {
-                  //SamsungGalaxyLogoURL = response[a].teams[b].image_url;  //alert("teams[b] Image URL: " + response[a].teams[b].image_url);
-                  PSGLGD.name = response[a].teams[c].name;
-                  PSGLGD.acronym = response[a].teams[c].acronym;
-                  PSGLGD.image_url = response[a].teams[c].image_url;
-                  console.log("PSGLGD: ", PSGLGD);
-                  alert("PSG LGD: ", PSGLGD);
-                }
-              }
-            //}
           }
-          console.log("OG: ", OG);
-          console.log("PSGLGD: ", PSGLGD);
 
           // Looping through each result item
           for (var a = 0; a < results.length; a++)
