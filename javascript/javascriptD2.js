@@ -124,6 +124,8 @@ $("#submit-comment").on("click", function () {
 
         $("#comments-display").empty();
 
+        $("#user-comment").val("");
+
         database.ref("/commentsD2").on("value", function (snapshot) {
 
             for (var i = 0; i < 5; i++) {
