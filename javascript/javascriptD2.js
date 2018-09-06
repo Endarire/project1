@@ -122,21 +122,7 @@ $("#submit-comment").on("click", function () {
         database.ref("/commentsD2/com").set(commentList);
         database.ref("/commentsD2/users").set(userList);
 
-        $("#comments-display").empty();
-
         $("#user-comment").val("");
 
-        database.ref("/commentsD2").on("value", function (snapshot) {
-
-            for (var i = 0; i < 5; i++) {
-                var x = $("<div>");
-                $(x).text(snapshot.val().users[i] + ": " + snapshot.val().com[i]);
-                $("#comments-display").append(x);
-            }
-
-            // If any errors are experienced, log them to console.
-        }, function (errorObject) {
-            console.log("The read failed: " + errorObject.code);
-        });
     }
 });
