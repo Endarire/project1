@@ -11,21 +11,23 @@ $.ajax({
         key: 'AIzaSyB-v9METQVhHGLIMj_NF_lNJBizORFDG1s',
         q: searchString[x],
         part: 'snippet'
-    }, { maxResults: 20, pageToken: $("#pageToken").val() }),
+    }, {
+            maxResults: 5
+        }),
     dataType: 'json',
     type: 'GET',
     timeout: 5000,
     url: 'https://www.googleapis.com/youtube/v3/search'
-})
-    .done(function (data) {
-        vidIdNum = data.items[0].id.videoId;
 
-        // Load the IFrame Player API code asynchronously.
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/player_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    });
+}).done(function (data) {
+    vidIdNum = data.items[0].id.videoId;
+
+    // Load the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/player_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
 
 var player;
 function onYouTubePlayerAPIReady() {
@@ -90,32 +92,48 @@ database.ref("/comments").on("value", function (snapshot) {
         $("#comments-display").append(x);
     }
 
-    // // If Firebase has a highPrice and highBidder stored (first case)
-    // if (snapshot.child("omments").exists() && snapshot.child("highPrice").exists()) {
-
-    //     // Set the local variables for highBidder equal to the stored values in firebase.
-    //     highBidder = snapshot.val().highBidder;
-    //     highPrice = parseInt(snapshot.val().highPrice);
-
-    //     // change the HTML to reflect the newly updated local values (most recent information from firebase)
-    //     $("#highest-bidder").text(snapshot.val().highBidder);
-    //     $("#highest-price").text("$" + snapshot.val().highPrice);
-    // }
-
-    // // Else Firebase doesn't have a highPrice/highBidder, so use the initial local values.
-    // else {
-
-    //     // Change the HTML to reflect the local value in firebase
-    //     $("#highest-bidder").text(highBidder);
-    //     $("#highest-price").text("$" + highPrice);
-
-    //     // Print the local data to the console.
-    //     console.log("local High Price");
-    //     console.log(highBidder);
-    //     console.log(highPrice);
-    // }
-
     // If any errors are experienced, log them to console.
 }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
+});
+
+$("#submit-comment").on("click", function () {
+    event.preventDefault();
+
+    var userName = $("#user-name").val().trim();
+    var userComment = $("#user-comment").val().trim();
+
+    if (userName === "" || userComment === "") {
+        return;
+    } else {
+        var commentList = [];
+        var userList = [];
+
+        database.ref("/comments/com").on('value', function (snap) { commentList = snap.val(); });
+        database.ref("/comments/users").on('value', function (snap) { userList = snap.val(); });
+
+        commentList.splice(0, 1);
+        userList.splice(0, 1);
+
+        commentList.push(userComment);
+        userList.push(userName);
+
+        database.ref("/comments/com").set(commentList);
+        database.ref("/comments/users").set(userList);
+
+        $("#comments-display").empty();
+
+        database.ref("/comments").on("value", function (snapshot) {
+
+            for (var i = 0; i < 5; i++) {
+                var x = $("<div>");
+                $(x).text(snapshot.val().users[i] + ": " + snapshot.val().com[i]);
+                $("#comments-display").append(x);
+            }
+
+            // If any errors are experienced, log them to console.
+        }, function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+        });
+    }
 });
