@@ -1,15 +1,11 @@
 var vidIdNum;
-var searchString = [
-    'overwatch world cup 2017 final',
-    'league of legends na lcs 2017 finals',
-    'dota 2 2018 international grand final'
-]
+var searchString = 'league of legends na lcs 2017 finals'
 
 $.ajax({
     cache: false,
     data: $.extend({
         key: 'AIzaSyB-v9METQVhHGLIMj_NF_lNJBizORFDG1s',
-        q: searchString[x],
+        q: searchString,
         part: 'snippet'
     }, {
             maxResults: 5
@@ -127,7 +123,99 @@ $("#submit-comment").on("click", function () {
     }
 });
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('.sidenav').sidenav(); /* Mobile Navbar function */
     $(".dropdown-trigger").dropdown(); /* Navbar Dropdown Function */
 });
+
+function displayLOLInfo() {
+    var searchTerm = $(this).attr("LOL-search-term");
+    let queryURL = "https://cors.io/?https://api.pandascore.co/" + "lol/tournaments" + ".json?token=45Y1oJ2gHMQDAL-KuPfNsuypkLd360qcCP7uDf0djuwGmcVByRw";
+
+    $.ajax
+        ({
+            url: queryURL,
+            method: "GET"
+        })
+        // After data comes back from the request
+        .then(function (response) {
+            console.log("QUERY URL: " + queryURL);
+            console.log("STRING RESPONSE: ", response);
+            response = JSON.parse(response); //Needed to make the data an object instead of a string!
+            console.log("OBJECT RESPONSE: ", response);
+
+            // storing the data from the AJAX request in the results variable
+            var results = response.data; //Useful?
+            //LOL Teams
+            let SamsungGalaxy = {};
+            let SKTelecom = {};
+            //DOTA 2 Teams
+            let OG = {};
+            let PSGLGD = {};
+            //Overwatch Teams
+            let TeamCanada = {};
+            let TeamSouthKorea = {};
+            //console.log("SamsungGalaxyLogoURL: " + SamsungGalaxyLogoURL);
+
+            //response[a].teams[b].image_url
+            //SK Telecom 1 Image URL: https://cdn.pandascore.co/images/team/image/100/sktelecom-t1-3mpugoym.png
+            for (let a = 0; a < response.length; a++) {
+                console.log("response[a]: ", response[a]);
+                //LOL Data
+                if (response[a].teams !== null) //Check if the field exists!
+                {
+                    for (let b = 0; b < response[a].teams.length; b++) {
+                        console.log("response[a].teams[b]", response[a].teams[b]);
+
+                        //DOTA 2 Teams
+                        if (response[a].teams[b].name.toUpperCase() === "OG".toUpperCase()) {
+                            OG.name = response[a].teams[b].name;
+                            OG.acronym = response[a].teams[b].acronym;
+                            OG.image_url = response[a].teams[b].image_url;
+                            console.log("OG: ", OG);
+                        }
+                        if (response[a].teams[b].name.toUpperCase() === "PSG.LGD".toUpperCase() || response[a].teams[b].name.toUpperCase() === "PSG LGD".toUpperCase()) {
+                            PSGLGD.name = response[a].teams[b].name;
+                            PSGLGD.acronym = response[a].teams[b].acronym;
+                            PSGLGD.image_url = response[a].teams[b].image_url;
+                            console.log("PSGLGD: ", PSGLGD);
+                        }
+                        //LOL Teams
+                        if (response[a].teams[b].name.toUpperCase() === "Samsung Galaxy".toUpperCase()) {
+                            SamsungGalaxy.name = response[a].teams[b].name;
+                            SamsungGalaxy.acronym = response[a].teams[b].acronym;
+                            SamsungGalaxy.image_url = response[a].teams[b].image_url;
+                            console.log("SAMSUNG GALAXY: ", SamsungGalaxy);
+                            $("#team1").text(SamsungGalaxy.name);
+                            $("#team1").append("<div>" + SamsungGalaxy.acronym + "</div>");
+                        }
+                        if (response[a].teams[b].name.toUpperCase() === "SK telecom T1".toUpperCase()) {
+                            SKTelecom.name = response[a].teams[b].name;
+                            SKTelecom.acronym = response[a].teams[b].acronym;
+                            SKTelecom.image_url = response[a].teams[b].image_url;
+                            console.log("SK TELECOM T1: ", SKTelecom);
+                            $("#team2").text(SKTelecom.name);
+                            $("#team2").append("<div>" + SKTelecom.acronym + "</div>");
+                        }
+                        //Overwatch Teams
+                        if (response[a].teams[b].name.toUpperCase() === "South_Korea".toUpperCase() || response[a].teams[b].name.toUpperCase() === "South Korea".toUpperCase()) {
+                            TeamSouthKorea.name = response[a].teams[b].name;
+                            TeamSouthKorea.acronym = response[a].teams[b].acronym;
+                            TeamSouthKorea.image_url = response[a].teams[b].image_url;
+                            console.log("Team South Korea: ", TeamSouthKorea);
+                            $("#team1").text(TeamSouthKorea);
+                        }
+                        if (response[a].teams[b].name.toUpperCase() === "Canada".toUpperCase()) {
+                            TeamCanada.name = response[a].teams[b].name;
+                            TeamCanada.acronym = response[a].teams[b].acronym;
+                            TeamCanada.image_url = response[a].teams[b].image_url;
+                            console.log("Team Canada: ", TeamCanada);
+                            $("#team2").text(TeamCanada.name);
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    displayLOLInfo();

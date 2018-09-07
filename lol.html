@@ -8,19 +8,21 @@
     <title>Project 1 - League of Legends</title>
     <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
 
 </head>
 
 <body>
     <!-- Dropdown Contents-->
     <ul id="dropdown1" class="dropdown-content">
-        <li><a href="https://play.na.leagueoflegends.com/en_US?utm_expid=.qgYsfAZwTGaXXuXMNi03WQ.0&utm_referrer=https%3A%2F%2Fna.leagueoflegends.com%2Fen%2F" target="_blank">LoL Website</a></li>
+        <li><a href="https://play.na.leagueoflegends.com/en_US?utm_expid=.qgYsfAZwTGaXXuXMNi03WQ.0&utm_referrer=https%3A%2F%2Fna.leagueoflegends.com%2Fen%2F"
+                target="_blank">LoL Website</a></li>
         <li class="divider"></li>
         <li><a href="http://blog.dota2.com/" target="_blank">D2 Website</a></li>
         <li class="divider"></li>
@@ -49,123 +51,57 @@
     </ul>
 
     <div class="row">
-            <div class="col l2"></div>
-            <div class="col s12 m12 l8 center">
-                <div class="video-container ">
-                    <div id="ytplayer"></div>
-                </div>
+        <div class="col l2"></div>
+        <div class="col s12 m12 l8 center">
+            <div class="video-container ">
+                <div id="ytplayer"></div>
             </div>
-            <div class="col l2"></div>
         </div>
-            <div class="col s8 m4 l6">
-                <div class="card opacity" style="margin-left: 20px; margin-right: 20px;">
-                        <div class="card-content white-text">
-                            <div>
-                                <div><p><b><i class="far fa-comments"></i> Chat</b></p></div>
-                                <br>
-                                <div id="comments-display"></div>
-                                <form>
-                                <hr>
-                                <div class="col s4 m4 l4">
-                                    <div class="form-group row">
-                                        <label for="user-name">User Name</label>
-                                        <input class="form-control" id="user-name" type="text" maxlength="10">
-                                    </div>
-                                </div>
-                                <div class="col s8 m8 l8">
-                                    <div class="form-group row">
-                                        <label for="user-comment">Comment</label>
-                                        <input class="form-control" id="user-comment" type="text" maxlength="200">
-                                    </div>
-                                </div>
-                                    <button class="btn btn-primary" id="submit-comment" type="submit">Submit</button>
-                                </form>
-                                <br>
-                                <div id="connected-viewers"></div>
+        <div class="col l2"></div>
+    </div>
+
+    <div id="team1">1</div>
+    <div id="team2">2</div>
+
+    <div class="col s8 m4 l6">
+        <div class="card opacity" style="margin-left: 20px; margin-right: 20px;">
+            <div class="card-content white-text">
+                <div>
+                    <div>
+                        <p><b><i class="far fa-comments"></i> Chat</b></p>
+                    </div>
+                    <br>
+                    <div id="comments-display"></div>
+                    <form>
+                        <hr>
+                        <div class="col s4 m4 l4">
+                            <div class="form-group row">
+                                <label for="user-name">User Name</label>
+                                <input class="form-control" id="user-name" type="text" maxlength="10">
                             </div>
                         </div>
-                    </div>
-    
+                        <div class="col s8 m8 l8">
+                            <div class="form-group row">
+                                <label for="user-comment">Comment</label>
+                                <input class="form-control" id="user-comment" type="text" maxlength="200">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="submit-comment" type="submit">Submit</button>
+                    </form>
+                    <br>
+                    <div id="connected-viewers"></div>
+                </div>
             </div>
+        </div>
+
+    </div>
 
 
     <!-- <div class="fullpage">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
-        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum.
+        tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. 
     </div> -->
-    
+
     <script>
         var x = 1;
     </script>
