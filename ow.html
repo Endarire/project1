@@ -20,11 +20,11 @@
 <body>
     <!-- Dropdown Contents-->
     <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">test1</a></li>
+        <li><a href="https://play.na.leagueoflegends.com/en_US?utm_expid=.qgYsfAZwTGaXXuXMNi03WQ.0&utm_referrer=https%3A%2F%2Fna.leagueoflegends.com%2Fen%2F" target="_blank">LoL Website</a></li>
         <li class="divider"></li>
-        <li><a href="#!">test2</a></li>
+        <li><a href="http://blog.dota2.com/" target="_blank">D2 Website</a></li>
         <li class="divider"></li>
-        <li><a href="#!">test3</a></li>
+        <li><a href="#!" target="_blank">OW Website</a></li>
     </ul>
     <!--Desktop Navbar-->
     <nav>
@@ -41,51 +41,55 @@
     </nav>
     <!--Mobile Navbar-->
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="lol.html"><img src="images/gameIcons/league-of-legends.png">League of Legends</a></li>
+        <li><a style="margin-top: 25px; margin-bottom: 25px;" href="lol.html"><img src="images/gameIcons/league-of-legends.png"></a></li>
         <li class="divider"></li>
-        <li><a href="ow.html"><img src="images/gameIcons/ow.svg">Overwatch</a></li>
+        <li><a style="margin-top: 25px; margin-bottom: 25px;" href="ow.html"><img src="images/gameIcons/ow.svg"></a></li>
         <li class="divider"></li>
-        <li><a href="d2.html"><img src="images/gameIcons/dota.png">Dota 2</a></li>
+        <li><a style="margin-top: 25px; margin-bottom: 25px;" href="d2.html"><img src="images/gameIcons/dota.png"></a></li>
     </ul>
 
     <div class="row">
-        <div class="col s8 m8 l8">
-            <div class="video-container">
-                <div id="ytplayer"></div>
+            <div class="col l2"></div>
+            <div class="col s12 m12 l8 center">
+                <div class="video-container ">
+                    <div id="ytplayer"></div>
+                </div>
             </div>
+            <div class="col l2"></div>
         </div>
-
-        <div class="col s4 m4 l8">
-            <div class="card opacity" style="margin-left: 20px; margin-right: 20px;">
-                    <div class="card-content white-text">
-                        <div>
-                            <div><p><i class="far fa-comments"></i> Chat</p></div>
-                            <br>
-                            <div id="comments-display"></div>
-                            <form>
-                                <div class="form-group row">
-                                    <hr>
-                                    <label for="user-name">User Name</label>
-                                    <input class="form-control" id="user-name" type="text" maxlength="10">
+            <div class="col s8 m4 l9">
+                <div class="card opacity" style="margin-left: 20px; margin-right: 20px;">
+                        <div class="card-content white-text">
+                            <div>
+                                <div><p><b><i class="far fa-comments"></i> Chat</b></p></div>
+                                <br>
+                                <div id="comments-display"></div>
+                                <form>
+                                <hr>
+                                <div class="col s4 m4 l4">
+                                    <div class="form-group row">
+                                        <label for="user-name">User Name</label>
+                                        <input class="form-control" id="user-name" type="text" maxlength="10">
+                                    </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="user-comment">Comment</label>
-                                    <input class="form-control" id="user-comment" type="text" maxlength="200">
+                                <div class="col s8 m8 l8">
+                                    <div class="form-group row">
+                                        <label for="user-comment">Comment</label>
+                                        <input class="form-control" id="user-comment" type="text" maxlength="200">
+                                    </div>
                                 </div>
-                                <button class="btn btn-primary" id="submit-comment" type="submit">Submit</button>
-                            </form>
-                            <br>
-                            <hr>
-                            <div id="connected-viewers"></div>
+                                    <button class="btn btn-primary" id="submit-comment" type="submit">Submit</button>
+                                </form>
+                                <br>
+                                <div id="connected-viewers"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
         </div>
-    </div>
 
 
-    <div class="fullpage">
+    <!-- <div class="fullpage">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
         tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
         ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
@@ -160,7 +164,7 @@
         tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum. Lorem,
         ipsum dolor sit amet consectetur adipisicing elit. Odio similique, saepe dolore, illo sit possimus accusantium ipsum
         tenetur consectetur reiciendis cupiditate sint, nostrum facilis iusto ex voluptas aliquid provident voluptatum.
-    </div>
+    </div> -->
 
     <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
     <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
