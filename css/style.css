@@ -80,6 +80,15 @@ h2 {
     color: #2268FE;
 }
 
+/* For mobile navbar */
+.divider {
+    margin-bottom: 8px;
+}
+
+.sidenav {
+    width: 115px;
+}
+
 /* Creates custom font from online */
 @font-face {
     font-family: 'UbuntuLI';
@@ -122,12 +131,13 @@ a {
     clear:both;
 }
 
+
 /* Formats the paragraph in the homepage */
 #paraBody {
     margin-left: 0px;
     overflow:auto;
     display:block;
-    font-size: 30px;
+    font-size: 40px;
     color: white;
 }
 
@@ -164,11 +174,17 @@ a {
 .bot-left { 
     border-radius: 50%;
     background: linear-gradient(to bottom, #1F6BFE, #bb27fe 100%);
-    padding: 9Px;
+    padding: 9px;
     width:300px;
     height:300px;
     border:0;
 }
+
+gameBtn {
+    margin: 10px;
+    align-items: center;
+}
+
 #gameBtn:hover .bot-left{ 
     transform: scale(1.1);
 }
@@ -210,12 +226,14 @@ iframe.sticky {
     top: 0;
 }
 .video-container {
-    position: sticky;
+    /* position: sticky; */
     padding-bottom: 56.25%;
-    padding-top: 30px; height: 0; overflow: hidden;
+    padding-top: 30px; 
+    height: 0; 
+    overflow: hidden;
     /* Creates space on the left and right sides of video */
-    margin-left: 8%;
-    margin-right: 8%;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 .video-container iframe,
 .video-container object, 
